@@ -90,7 +90,7 @@
           </div>
         </div>
       </div>
-      <div v-else>投稿はありません。</div>
+      <div v-else class="text-center">投稿はありません。</div>
     </div>
     <!-- <jet-pagination class="m-5" :links="places.links"></jet-pagination> -->
     <div>

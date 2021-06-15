@@ -25056,7 +25056,8 @@ var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 );
 
 var _hoisted_18 = {
-  key: 1
+  key: 1,
+  "class": "text-center"
 };
 var _hoisted_19 = {
   "class": "flex pl-0 list-none rounded my-2 justify-center"
