@@ -41,13 +41,6 @@
           :disableDefaultUI="true"
           map-type-id="roadmap"
         >
-        <GMapMarker
-      :key="index"
-      v-for="(m, index) in markers"
-      :position="m.position"
-      @click="openInfoWindow(marker.id)"
-      :clickable="true"
-    />
         </GMapMap>
       </div>
     </div>

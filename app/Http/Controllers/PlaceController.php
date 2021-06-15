@@ -16,17 +16,19 @@ class PlaceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(User $user)
+    public function index(User $user, Request $request)
     {
-        // dd(Place::all());
-        $places = Place::paginate(6);
-
-        // favoritesをfavoritedとしてuser_idと認証idが一致していたらfavoritedを整数型で返す
-        $places = Place::withCount(['favorites as favorited' => function($q){
-            $q->where('user_id', Auth::id());
-        }])->withCasts(['favorited' => 'boolean'])->with('user')->paginate();
-
-        return Inertia::render('places/index', compact('places'));
+        return Inertia::render('places/index', [
+            // favoritesをfavoritedとしてuser_idと認証idが一致していたらfavoritedを整数型で返す
+            //  when以降は検索機能
+            // paginationを最後に記載
+            'places' => Place::withCount(['favorites as favorited' => function($q){
+                    $q->where('user_id', Auth::id());
+                }])->withCasts(['favorited' => 'boolean'])->with('user')
+                ->when($request->term, function($q, $term){
+                    $q->where('name', 'LIKE', '%'.$term.'%');
+                })->paginate(5)
+        ]);
     }
 
     /**

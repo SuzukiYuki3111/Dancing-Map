@@ -4,7 +4,7 @@
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
         投稿画面
       </h2>
-      <p class="bg-yellow-200 mt-2 font-normal rounded">
+      <p class="bg-yellow-200 mt-2 p-2 font-normal rounded-lg">
             周りの人への挨拶やゴミの持ち帰りなど、マナーを守って気持ちよく練習場所を共有しましょう！<br />
             ※通行の妨げになりやすい場所で踊ったり、大きすぎる音量で音楽を流していたりすると迷惑になる場合があります。
             場所によっては、練習をしてはいけない時間帯などが定められていることもあります。トラブルを避けるために十分注意しましょう。
@@ -158,6 +158,7 @@ export default {
           },
         }
       ]
+
     };
   },
   // file用フォームヘルパー
@@ -169,8 +170,8 @@ export default {
       });
     },
     setPlace() {
-
     },
   },
+
 };
 </script>

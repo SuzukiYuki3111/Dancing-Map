@@ -10,19 +10,43 @@
         </inertia-link>
       </h2>
     </template>
+    <div class="mx-6 mx-auto max-w-lg md:max-w-2xl">
+            <input id="search"
+             type="text"
+             v-model="term"
+             @keyup="search"
+             class="w-full mt-7 -mb-5 text-sm rounded"
+             placeholder="練習場所を検索　（例）〇〇駅、スタジオ〇〇">
+        </div>
     <div class="py-12">
-      <div v-if="places.data.length > 0" class="max-w-4xl mx-auto sm:px-6 lg:px-8">
+      <div
+        v-if="places.data.length > 0"
+        class="max-w-4xl mx-auto sm:px-6 lg:px-8"
+      >
         <div
           v-for="place in places.data"
           v-bind:key="place.id"
-          class="md:flex shadow-lg mx-6 mx-auto max-w-lg md:max-w-2xl h-full justify-center rounded border border-gray-300"
+          class="
+            md:flex
+            shadow-lg
+            mx-6 mx-auto
+            max-w-lg
+            md:max-w-2xl
+            h-full
+            justify-center
+            rounded
+            border border-gray-300
+          "
         >
           <img
             class="h-auto w-full md:w-1/3 object-cover pb-5/6"
             :src="'/storage/' + place.file"
             alt="view"
           />
-          <div class="w-full md:w-2/3 px-4 py-4 bg-white" style="word-break:break-all;">
+          <div
+            class="w-full md:w-2/3 px-4 py-4 bg-white"
+            style="word-break: break-all"
+          >
             <div class="flex items-center">
               <h2 class="text-xl text-gray-800 font-bold mr-auto w-2/3">
                 {{ place.name }}
@@ -68,6 +92,26 @@
       </div>
       <div v-else>投稿はありません。</div>
     </div>
+    <!-- <jet-pagination class="m-5" :links="places.links"></jet-pagination> -->
+    <div>
+      <ul class="flex pl-0 list-none rounded my-2 justify-center">
+        <li
+          :class="[
+            'relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-blue-700 rounded hover:bg-gray-200',
+            link.url === null ? 'disabled' : '',
+            link.active ? 'active' : '',
+          ]"
+          v-for="(link, index) in places.links"
+          :key="index"
+        >
+          <inertia-link
+            class="page-link"
+            :href="link.url === null ? '#' : link.url"
+            v-html="link.label"
+          ></inertia-link>
+        </li>
+      </ul>
+    </div>
   </app-layout>
 </template>
 
@@ -75,6 +119,7 @@
 import AppLayout from "@/Layouts/AppLayout";
 import Welcome from "@/Jetstream/Welcome";
 import JetButton from "@/Jetstream/Button";
+// import JetPagination from "@/Jetstream/Pagination";
 import moment from "moment";
 
 export default {
@@ -82,18 +127,27 @@ export default {
     AppLayout,
     Welcome,
     JetButton,
+    // JetPagination
   },
 
   data() {
     return {
       moment: moment,
       places: this.places,
+      term: '',
     };
   },
 
   props: {
     places: Object,
     user: Object,
+  },
+
+  methods: {
+      // 検索機能
+      search(){
+          this.$inertia.replace(this.route('places.index', {term: this.term}));
+      }
   },
 
   watch: {
