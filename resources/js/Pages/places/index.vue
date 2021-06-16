@@ -10,14 +10,17 @@
         </inertia-link>
       </h2>
     </template>
+    <!-- 検索バー -->
     <div class="mx-6 mx-auto max-w-lg md:max-w-2xl">
-            <input id="search"
-             type="text"
-             v-model="term"
-             @keyup="search"
-             class="w-full mt-7 -mb-5 text-sm rounded"
-             placeholder="練習場所を検索　（例）〇〇駅、スタジオ〇〇">
-        </div>
+      <input
+        id="search"
+        type="text"
+        v-model="term"
+        @keyup="search"
+        class="w-full mt-7 -mb-5 text-sm rounded"
+        placeholder="練習場所を検索　（例）〇〇駅、スタジオ〇〇"
+      />
+    </div>
     <div class="py-12">
       <div
         v-if="places.data.length > 0"
@@ -92,25 +95,17 @@
       </div>
       <div v-else class="text-center">投稿はありません。</div>
     </div>
-    <!-- <jet-pagination class="m-5" :links="places.links"></jet-pagination> -->
-    <div>
-      <ul class="flex pl-0 list-none rounded my-2 justify-center">
-        <li
-          :class="[
-            'relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-blue-700 rounded hover:bg-gray-200',
-            link.url === null ? 'disabled' : '',
-            link.active ? 'active' : '',
-          ]"
-          v-for="(link, index) in places.links"
-          :key="index"
-        >
-          <inertia-link
-            class="page-link"
-            :href="link.url === null ? '#' : link.url"
-            v-html="link.label"
-          ></inertia-link>
-        </li>
-      </ul>
+    <!-- ペジネーション -->
+    <div class="text-center mb-8">
+      <inertia-link
+        :href="link.url === null ? '#' : link.url"
+        v-bind:class="{ 'bg-gray-200': link.active }"
+        class="px-2 bg-white text-blue-700 hover:bg-gray-200 border rounded"
+        v-for="link in places.links"
+        v-bind:key="link.label"
+      >
+        <span>{{ link.label }}</span>
+      </inertia-link>
     </div>
   </app-layout>
 </template>
@@ -119,7 +114,6 @@
 import AppLayout from "@/Layouts/AppLayout";
 import Welcome from "@/Jetstream/Welcome";
 import JetButton from "@/Jetstream/Button";
-// import JetPagination from "@/Jetstream/Pagination";
 import moment from "moment";
 
 export default {
@@ -127,14 +121,13 @@ export default {
     AppLayout,
     Welcome,
     JetButton,
-    // JetPagination
   },
 
   data() {
     return {
       moment: moment,
       places: this.places,
-      term: '',
+      term: "",
     };
   },
 
@@ -144,10 +137,10 @@ export default {
   },
 
   methods: {
-      // 検索機能
-      search(){
-          this.$inertia.replace(this.route('places.index', {term: this.term}));
-      }
+    // 検索機能
+    search() {
+      this.$inertia.replace(this.route("places.index", { term: this.term }));
+    },
   },
 
   watch: {

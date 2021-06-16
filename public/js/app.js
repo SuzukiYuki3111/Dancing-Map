@@ -19726,21 +19726,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
 
 
- // import JetPagination from "@/Jetstream/Pagination";
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__.default,
     Welcome: _Jetstream_Welcome__WEBPACK_IMPORTED_MODULE_1__.default,
-    JetButton: _Jetstream_Button__WEBPACK_IMPORTED_MODULE_2__.default // JetPagination
-
+    JetButton: _Jetstream_Button__WEBPACK_IMPORTED_MODULE_2__.default
   },
   data: function data() {
     return {
       moment: (moment__WEBPACK_IMPORTED_MODULE_3___default()),
       places: this.places,
-      term: ''
+      term: ""
     };
   },
   props: {
@@ -19750,7 +19748,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     // 検索機能
     search: function search() {
-      this.$inertia.replace(this.route('places.index', {
+      this.$inertia.replace(this.route("places.index", {
         term: this.term
       }));
     }
@@ -25060,7 +25058,7 @@ var _hoisted_18 = {
   "class": "text-center"
 };
 var _hoisted_19 = {
-  "class": "flex pl-0 list-none rounded my-2 justify-center"
+  "class": "text-center mb-8"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_jet_button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("jet-button");
@@ -25165,22 +25163,28 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         , ["href"])])])])]);
       }), 128
       /* KEYED_FRAGMENT */
-      ))])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_18, "投稿はありません。"))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_19, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.places.links, function (link, index) {
-        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("li", {
-          "class": ['relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-blue-700 rounded hover:bg-gray-200', link.url === null ? 'disabled' : '', link.active ? 'active' : ''],
-          key: index
-        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-          "class": "page-link",
+      ))])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_18, "投稿はありません。"))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_19, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.places.links, function (link) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_inertia_link, {
           href: link.url === null ? '#' : link.url,
-          innerHTML: link.label
-        }, null, 8
-        /* PROPS */
-        , ["href", "innerHTML"])], 2
-        /* CLASS */
-        );
+          "class": [{
+            'bg-gray-200': link.active
+          }, "px-2 bg-white text-blue-700 hover:bg-gray-200 border rounded"],
+          key: link.label
+        }, {
+          "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(link.label), 1
+            /* TEXT */
+            )];
+          }),
+          _: 2
+          /* DYNAMIC */
+
+        }, 1032
+        /* PROPS, DYNAMIC_SLOTS */
+        , ["href", "class"]);
       }), 128
       /* KEYED_FRAGMENT */
-      ))])])];
+      ))])];
     }),
     _: 1
     /* STABLE */
