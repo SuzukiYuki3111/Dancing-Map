@@ -21102,7 +21102,7 @@ var _hoisted_1 = {
   key: 0
 };
 var _hoisted_2 = {
-  "class": "flex justify-center mt-12"
+  "class": "flex justify-center mb-10"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
@@ -25229,11 +25229,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         , ["href"])])])])]);
       }), 128
       /* KEYED_FRAGMENT */
-      ))])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_18, "投稿はありません。")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" ペジネーション "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
+      ))])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_18, "投稿はありません。"))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
         links: $props.places.links
       }, null, 8
       /* PROPS */
-      , ["links"])])];
+      , ["links"])];
     }),
     _: 1
     /* STABLE */

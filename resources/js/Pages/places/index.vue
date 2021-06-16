@@ -94,9 +94,9 @@
         </div>
       </div>
       <div v-else class="text-center">投稿はありません。</div>
+    </div>
       <!-- ペジネーション -->
         <pagination :links="places.links"/>
-    </div>
   </app-layout>
 </template>
 
