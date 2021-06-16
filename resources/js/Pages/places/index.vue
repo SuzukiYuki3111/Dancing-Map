@@ -94,18 +94,8 @@
         </div>
       </div>
       <div v-else class="text-center">投稿はありません。</div>
-    </div>
-    <!-- ペジネーション -->
-    <div class="text-center mb-8">
-      <inertia-link
-        :href="link.url === null ? '#' : link.url"
-        v-bind:class="{ 'bg-gray-200': link.active }"
-        class="px-2 bg-white text-blue-700 hover:bg-gray-200 border rounded"
-        v-for="link in places.links"
-        v-bind:key="link.label"
-      >
-        <span>{{ link.label }}</span>
-      </inertia-link>
+      <!-- ペジネーション -->
+        <pagination :links="places.links"/>
     </div>
   </app-layout>
 </template>
@@ -115,15 +105,18 @@ import AppLayout from "@/Layouts/AppLayout";
 import Welcome from "@/Jetstream/Welcome";
 import JetButton from "@/Jetstream/Button";
 import moment from "moment";
+import Pagination from '@/Jetstream/Pagination';
 
 export default {
   components: {
     AppLayout,
     Welcome,
     JetButton,
+    Pagination,
   },
 
   data() {
+
     return {
       moment: moment,
       places: this.places,
