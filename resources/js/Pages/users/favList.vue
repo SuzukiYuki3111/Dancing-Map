@@ -46,17 +46,6 @@
                 場所を確認<i class="fas fa-external-link-alt ml-2 pt-1"></i>
               </a>
               <div>
-                <inertia-link
-                  class="focus:outline-none"
-                  preserve-scroll
-                  method="POST"
-                  as="button"
-                  :href="`/places/${place.id}/favorite`"
-                >
-                  <icon
-                    :name="place.favorited ? 'star' : 'star-outline'"
-                  ></icon>
-                </inertia-link>
               </div>
             </div>
           </div>
@@ -69,7 +58,7 @@
 
 <script>
 import AppLayout from "@/Layouts/AppLayout";
-import UsersHeader from '../../Utils/usersHeader.vue';
+import UsersHeader from '@/Utils/usersHeader.vue';
 import moment from "moment";
 
 export default {
@@ -89,13 +78,6 @@ export default {
   components: {
     AppLayout,
     UsersHeader,
-  },
-
-
-  watch: {
-    places(newPlaces) {
-      this.placeList = newPlaces;
-    },
   },
 };
 </script>

@@ -19896,7 +19896,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
-/* harmony import */ var _Utils_usersHeader_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Utils/usersHeader.vue */ "./resources/js/Utils/usersHeader.vue");
+/* harmony import */ var _Utils_usersHeader_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Utils/usersHeader.vue */ "./resources/js/Utils/usersHeader.vue");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
 
@@ -19917,11 +19917,6 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__.default,
     UsersHeader: _Utils_usersHeader_vue__WEBPACK_IMPORTED_MODULE_1__.default
-  },
-  watch: {
-    places: function places(newPlaces) {
-      this.placeList = newPlaces;
-    }
   }
 });
 
@@ -20011,7 +20006,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _Jetstream_Welcome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Jetstream/Welcome */ "./resources/js/Jetstream/Welcome.vue");
 /* harmony import */ var _Jetstream_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Jetstream/Button */ "./resources/js/Jetstream/Button.vue");
-/* harmony import */ var _Utils_usersHeader_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Utils/usersHeader.vue */ "./resources/js/Utils/usersHeader.vue");
+/* harmony import */ var _Utils_usersHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Utils/usersHeader */ "./resources/js/Utils/usersHeader.vue");
 
 
 
@@ -20027,7 +20022,7 @@ __webpack_require__.r(__webpack_exports__);
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__.default,
     Welcome: _Jetstream_Welcome__WEBPACK_IMPORTED_MODULE_1__.default,
     JetButton: _Jetstream_Button__WEBPACK_IMPORTED_MODULE_2__.default,
-    UsersHeader: _Utils_usersHeader_vue__WEBPACK_IMPORTED_MODULE_3__.default
+    UsersHeader: _Utils_usersHeader__WEBPACK_IMPORTED_MODULE_3__.default
   } // name: "pink-tabs",
   //   data() {
   //     return {
@@ -25655,16 +25650,16 @@ var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 /* HOISTED */
 );
 
-var _hoisted_14 = {
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, null, -1
+/* HOISTED */
+);
+
+var _hoisted_15 = {
   key: 1,
   "class": "text-center"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_users_header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("users-header");
-
-  var _component_icon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("icon");
-
-  var _component_inertia_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("inertia-link");
 
   var _component_app_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-layout");
 
@@ -25710,29 +25705,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           target: "_blank"
         }, [_hoisted_12, _hoisted_13], 8
         /* PROPS */
-        , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
-          "class": "focus:outline-none",
-          "preserve-scroll": "",
-          method: "POST",
-          as: "button",
-          href: "/places/".concat(place.id, "/favorite")
-        }, {
-          "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_icon, {
-              name: place.favorited ? 'star' : 'star-outline'
-            }, null, 8
-            /* PROPS */
-            , ["name"])];
-          }),
-          _: 2
-          /* DYNAMIC */
-
-        }, 1032
-        /* PROPS, DYNAMIC_SLOTS */
-        , ["href"])])])])]);
+        , ["href"]), _hoisted_14])])]);
       }), 128
       /* KEYED_FRAGMENT */
-      ))])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_14, "お気に入りした投稿はありません。"))])];
+      ))])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_15, "お気に入りした投稿はありません。"))])];
     }),
     _: 1
     /* STABLE */
@@ -25772,7 +25748,7 @@ var _hoisted_4 = {
   "class": "px-6 py-6"
 };
 var _hoisted_5 = {
-  "class": "flex items-center "
+  "class": "flex items-center"
 };
 var _hoisted_6 = {
   "class": "p-1 text-xl font-bold"
@@ -26109,8 +26085,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
     "class": "h-12 w-12 rounded-full object-cover",
-    src: _ctx.$page.props.user.profile_photo_url,
-    alt: _ctx.$page.props.user.name
+    src: $props.user.profile_photo_url,
+    alt: $props.user.name
   }, null, 8
   /* PROPS */
   , ["src", "alt"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)((_$props$user$username = $props.user.username) !== null && _$props$user$username !== void 0 ? _$props$user$username : $props.user.name), 1

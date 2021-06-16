@@ -6,8 +6,8 @@
             <div class="flex items-center">
               <img
                 class="h-12 w-12 rounded-full object-cover"
-                :src="$page.props.user.profile_photo_url"
-                :alt="$page.props.user.name"
+                :src="user.profile_photo_url"
+                :alt="user.name"
               />
               <span class="p-1 text-xl font-bold">{{
                 user.username ?? user.name

@@ -13,7 +13,7 @@
 import AppLayout from "@/Layouts/AppLayout";
 import Welcome from "@/Jetstream/Welcome";
 import JetButton from "@/Jetstream/Button";
-import UsersHeader from '../../Utils/usersHeader.vue';
+import UsersHeader from "@/Utils/usersHeader";
 // import moment from "moment";
 // import placeList from "@/Utils/placeList";
 
