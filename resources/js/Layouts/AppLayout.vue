@@ -11,7 +11,8 @@
                             <!-- Logo -->
                             <div class="flex-shrink-0 flex items-center">
                                 <inertia-link :href="route('map')">
-                                    <jet-application-mark class="block h-9 w-auto" />
+                                    <!-- <jet-application-mark class="block h-9 w-auto" /> -->
+                                    <img class="h-36" src="/logos/logo_transparent.png" alt="logo">
                                 </inertia-link>
                             </div>
 
