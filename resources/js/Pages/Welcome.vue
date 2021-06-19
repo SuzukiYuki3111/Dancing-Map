@@ -1,8 +1,9 @@
 <template>
-  <div
-    class="relative flex items-top justify-center bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0"
-  >
-    <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+  <!-- <div
+    class="relative flex items-top justify-center dark:bg-gray-900 sm:items-center sm:pt-0"
+  > -->
+    <div v-if="canLogin" class="px-6 sm:block">
+        <img class="h-32 inline" src="/logos/logo_transparent.png" alt="logo">
       <inertia-link
         v-if="$page.props.user"
         href="/map"
@@ -13,25 +14,25 @@
 
       <template v-else>
         <inertia-link
+          v-if="canRegister"
+          :href="route('register')"
+          class="mt-12 float-right mx-4 font-bold text-gray-700 hover:text-indigo-400 hover:border-indigo-400 visited:text-indigo-400 visited:border-indigo-400 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition"
+        >
+          会員登録
+        </inertia-link>
+
+        <inertia-link
           :href="route('login')"
-          class="font-bold text-gray-700 hover:text-indigo-400 hover:border-indigo-400 visited:text-indigo-400 visited:border-indigo-400 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition"
+          class="mt-12 float-right font-bold text-gray-700 hover:text-indigo-400 hover:border-indigo-400 visited:text-indigo-400 visited:border-indigo-400 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition"
         >
           ログイン
         </inertia-link>
 
-        <inertia-link
-          v-if="canRegister"
-          :href="route('register')"
-          class="ml-4 font-bold text-gray-700 hover:text-indigo-400 hover:border-indigo-400 visited:text-indigo-400 visited:border-indigo-400 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition"
-        >
-          会員登録
-        </inertia-link>
       </template>
     </div>
-  </div>
+  <!-- </div> -->
 
-  <div class="py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 bg-gray-100">
       <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
         <GMapMap
           class="w-full h-screen"
@@ -43,7 +44,6 @@
         >
         </GMapMap>
       </div>
-    </div>
   </div>
 </template>
 

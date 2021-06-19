@@ -5,44 +5,49 @@
         投稿画面
       </h2>
       <p class="bg-yellow-200 mt-2 p-2 font-normal rounded-lg">
-            周りの人への挨拶やゴミの持ち帰りなど、マナーを守って気持ちよく練習場所を共有しましょう！<br />
-            ※通行の妨げになりやすい場所で踊ったり、大きすぎる音量で音楽を流していたりすると迷惑になる場合があります。
-            場所によっては、練習をしてはいけない時間帯などが定められていることもあります。トラブルを避けるために十分注意しましょう。
-          </p>
+        周りの人への挨拶やゴミの持ち帰りなど、マナーを守って気持ちよく練習場所を共有しましょう！<br />
+        ※通行の妨げになりやすい場所で踊ったり、大きすぎる音量で音楽を流していたりすると迷惑になる場合があります。
+        場所によっては、練習をしてはいけない時間帯などが定められていることもあります。トラブルを避けるために十分注意しましょう。
+      </p>
     </template>
     <div class="flex items-center p-4 lg:justify-center">
       <div
-        class="flex flex-col overflow-hidden bg-white rounded-md shadow-lg max flex-row flex-1"
+        class="
+          flex flex-col
+          overflow-hidden
+          bg-white
+          rounded-md
+          shadow-lg
+          max
+          flex-row flex-1
+        "
       >
         <div
-          class="p-4 py-6 text-white flex-shrink-0 flex flex-col items-center justify-evenly rounded"
+          class="
+            p-4
+            py-6
+            text-white
+            flex-shrink-0 flex flex-col
+            items-center
+            justify-evenly
+            rounded
+          "
         >
-        <GMapAutocomplete
-       placeholder="    登録する場所を検索"
-       @place_changed="setPlace"
-       class="text-black w-full mb-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
-            >
-        </GMapAutocomplete>
           <GMapMap
-            class="w-full h-screen"
-            :center="{lat: 35.69142600802246, lng: 139.7662640231528}"
+            class="w-full h-screen rounded-lg"
+            :center="{ lat: 35.69142600802246, lng: 139.7662640231528 }"
             :zoom="11"
-            ref="myMapRef"
             :disableDefaultUI="true"
             map-type-id="roadmap"
             :options="{
-                      zoomControl: true,
-                      mapTypeControl: true,
-                      scaleControl: true,
-                      streetViewControl: false,
-                      rotateControl: true,
-                      fullscreenControl: true,
-                }"
+              zoomControl: true,
+              mapTypeControl: true,
+              scaleControl: true,
+              streetViewControl: false,
+              rotateControl: true,
+              fullscreenControl: true,
+            }"
           >
-          <GMapMarker
-            :key="index"
-            v-for="(m, index) in markers"
-            />
           </GMapMap>
         </div>
         <div class="p-5 bg-white md:flex-1">
@@ -70,11 +75,21 @@
             <!-- map_url -->
             <div class="flex flex-col space-y-1">
               <label for="map_url" class="text-sm font-semibold text-gray-500"
-                >マップURL<a class="float-right hover:text-indigo-400 underline" href="https://www.google.com/maps/@35.681983,139.773973,15z?hl=ja" target="_blank">地図を開く</a></label
+                >マップURL</label
               >
               <input
                 type="text"
-                class="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+                class="
+                  px-4
+                  py-2
+                  transition
+                  duration-300
+                  border border-gray-300
+                  rounded
+                  focus:border-transparent
+                  focus:outline-none
+                  focus:ring-4 focus:ring-blue-200
+                "
                 v-model="form.map_url"
                 required
               />
@@ -87,7 +102,17 @@
               >
               <input
                 type="text"
-                class="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+                class="
+                  px-4
+                  py-2
+                  transition
+                  duration-300
+                  border border-gray-300
+                  rounded
+                  focus:border-transparent
+                  focus:outline-none
+                  focus:ring-4 focus:ring-blue-200
+                "
                 placeholder="◯◯駅、スタジオ◯◯など"
                 v-model="form.name"
                 required
@@ -103,7 +128,17 @@
               >
               <textarea
                 type="text"
-                class="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+                class="
+                  px-4
+                  py-2
+                  transition
+                  duration-300
+                  border border-gray-300
+                  rounded
+                  focus:border-transparent
+                  focus:outline-none
+                  focus:ring-4 focus:ring-blue-200
+                "
                 rows="7"
                 wrap="hard"
                 placeholder="駅から近くて便利、ゴミは必ず持ち帰るなど"
@@ -116,7 +151,22 @@
             </div>
             <!-- submit -->
             <button
-              class="w-full px-4 py-2 text-lg font-semibold text-white transition-colors duration-300 bg-blue-500 rounded-md shadow hover:bg-blue-600 focus:outline-none focus:ring-blue-200 focus:ring-4"
+              class="
+                w-full
+                px-4
+                py-2
+                text-lg
+                font-semibold
+                text-white
+                transition-colors
+                duration-300
+                bg-blue-500
+                rounded-md
+                shadow
+                hover:bg-blue-600
+                focus:outline-none
+                focus:ring-blue-200 focus:ring-4
+              "
               type="submit"
             >
               確認画面へ
@@ -140,8 +190,6 @@ export default {
     JetButton,
   },
 
-   name: 'App',
-
   data() {
     return {
       form: this.$inertia.form({
@@ -150,15 +198,6 @@ export default {
         name: "",
         description: "",
       }),
-
-       markers: [
-        {
-          position: {
-            lat: 35.69142600802246, lng: 139.7662640231528
-          },
-        }
-      ]
-
     };
   },
   // file用フォームヘルパー
@@ -169,9 +208,6 @@ export default {
         forceFormData: true,
       });
     },
-    setPlace() {
-    },
   },
-
 };
 </script>
