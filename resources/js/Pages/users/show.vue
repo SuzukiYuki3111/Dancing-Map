@@ -5,7 +5,7 @@
         ユーザー詳細
       </h2>
     </template>
-    <users-header :user="user"></users-header>
+    <users-header :userInfo="userInfo"></users-header>
   </app-layout>
 </template>
 
@@ -16,7 +16,7 @@ import UsersHeader from "@/Utils/usersHeader";
 export default {
   props: {
     // places: Object,
-    user: Object,
+    userInfo: Object,
   },
 
   components: {

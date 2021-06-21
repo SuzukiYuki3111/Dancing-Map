@@ -12,7 +12,7 @@
                             <div class="flex-shrink-0 flex items-center">
                                 <inertia-link :href="route('map')">
                                     <!-- <jet-application-mark class="block h-9 w-auto" /> -->
-                                    <img class="my-3 h-36" src="/logos/logo_transparent.png" alt="logo">
+                                    <img class="my-3 h-24" src="/logos/logo_transparent.png" alt="logo">
                                 </inertia-link>
                             </div>
 

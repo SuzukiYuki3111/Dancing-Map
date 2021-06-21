@@ -6,10 +6,10 @@ use Inertia\Inertia;
 
 class FavListController extends Controller
 {
-    public function index(User $user){
+    public function index($id){
         return Inertia::render('users/favList', [
-            'favList' => $user->favorites()->paginate(),
-            'user' => $user,
+            'userInfo' => $userInfo = User::find($id),
+            'favList' => $userInfo->favorites()->paginate(),
         ]);
     }
 }

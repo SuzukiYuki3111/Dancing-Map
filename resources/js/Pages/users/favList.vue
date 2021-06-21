@@ -5,7 +5,7 @@
         ユーザー詳細
       </h2>
     </template>
-          <users-header :user="user"></users-header>
+          <users-header :userInfo="userInfo"></users-header>
            <div class="py-12">
       <div v-if="favList.data.length > 0" class="max-w-4xl mx-auto sm:px-6 lg:px-8">
         <div
@@ -30,10 +30,10 @@
             <p class="flex text-gray-700 pt-4">
               <img
                 class="h-8 w-8 rounded-full object-cover"
-                :src="user.profile_photo_url"
-                :alt="user.username"
+                :src="userInfo.profile_photo_url"
+                :alt="userInfo.username"
               />
-              <span class="p-1 font-medium">{{ user.username }}</span>
+              <span class="p-1 font-medium">{{ userInfo.username }}</span>
             </p>
             <br />
             <div class="whitespace-pre-wrap" v-text="place.description"></div>
@@ -45,8 +45,19 @@
               >
                 場所を確認<i class="fas fa-external-link-alt ml-2 pt-1"></i>
               </a>
-              <div>
-              </div>
+              <!-- <div>
+                <inertia-link
+                  class="focus:outline-none"
+                  preserve-scroll
+                  method="POST"
+                  as="button"
+                  :href="`/places/${place.id}/favorite`"
+                >
+                  <icon
+                    :name="place.favorited ? 'star' : 'star-outline'"
+                  ></icon>
+                </inertia-link>
+              </div> -->
             </div>
           </div>
         </div>
@@ -63,7 +74,7 @@ import moment from "moment";
 
 export default {
   props: {
-    user: Object,
+    userInfo: Object,
     favList: Object,
   },
 
@@ -71,7 +82,7 @@ export default {
         return {
             favList: this.favList,
             moment: moment,
-            user: this.user,
+            userInfo: this.userInfo,
         }
     },
 

@@ -5,7 +5,7 @@
         ユーザー詳細
       </h2>
     </template>
-          <users-header :user="user"></users-header>
+          <users-header :userInfo="userInfo"></users-header>
           <div class="py-12">
       <div v-if="placeList.data.length > 0" class="max-w-4xl mx-auto sm:px-6 lg:px-8">
         <div
@@ -30,10 +30,10 @@
             <p class="flex text-gray-700 pt-4">
               <img
                 class="h-8 w-8 rounded-full object-cover"
-                :src="user.profile_photo_url"
-                :alt="user.username"
+                :src="userInfo.profile_photo_url"
+                :alt="userInfo.username"
               />
-              <span class="p-1 font-medium">{{ user.username }}</span>
+              <span class="p-1 font-medium">{{ userInfo.username }}</span>
             </p>
             <br />
             <div class="whitespace-pre-wrap" v-text="place.description"></div>
@@ -45,7 +45,7 @@
               >
                 場所を確認<i class="fas fa-external-link-alt ml-2 pt-1"></i>
               </a>
-              <div>
+              <!-- <div>
                 <inertia-link
                   class="focus:outline-none"
                   preserve-scroll
@@ -57,7 +57,7 @@
                     :name="place.data ? 'star' : 'star-outline'"
                   ></icon>
                 </inertia-link>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -69,12 +69,12 @@
 
 <script>
 import AppLayout from "@/Layouts/AppLayout";
-import UsersHeader from '../../Utils/usersHeader.vue';
+import UsersHeader from '@/Utils/usersHeader';
 import moment from "moment";
 
 export default {
   props: {
-    user: Object,
+    userInfo: Object,
     placeList: Object,
   },
 
@@ -82,7 +82,7 @@ export default {
         return {
             placeList: this.placeList,
             moment: moment,
-            user: this.user,
+            userInfo: this.userInfo,
         }
     },
 

@@ -16,7 +16,7 @@ class UsersController extends Controller
     }
 
     public function show($id){
-        $user = User::find($id);
-        return Inertia::render('users/show', compact('user'));
+        $userInfo = User::find($id);
+        return Inertia::render('users/show', compact('userInfo'));
     }
 }

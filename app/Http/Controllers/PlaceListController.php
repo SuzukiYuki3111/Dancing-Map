@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Auth;
 
 class PlaceListController extends Controller
 {
-    public function index(User $user){
+    public function index($id){
 
-        // $places = Place::paginate();
+        // $ = Place::paginate();
 
         // favoritesをfavoritedとしてuser_idと認証idが一致していたらfavoritedを真偽値で返す
         // $places = Place::withCount(['favorites as favorited' => function($q){
@@ -18,8 +18,8 @@ class PlaceListController extends Controller
         // }])->withCasts(['favorited' => 'boolean'])->with('user')->paginate();
 
         return Inertia::render('users/placeList', [
-            'placeList' => $user->places()->paginate(),
-            'user' => $user,
+            'userInfo' => $userInfo = User::find($id),
+            'placeList' => $userInfo->places()->paginate(),
             // 'places' => $places,
         ]);
     }
