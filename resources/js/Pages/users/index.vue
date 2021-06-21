@@ -19,7 +19,7 @@
                 <img
                   class="h-12 w-12 rounded-full object-cover"
                   :src="user.profile_photo_url"
-                  :alt="$page.props.user.name"
+                  :alt="user.name"
                 />
                 <span class="p-1 text-xl font-bold">{{
                   user.username ?? user.name
@@ -33,12 +33,15 @@
         </div>
       </div>
     </div>
+    <!-- ペジネーション -->
+        <pagination :links="users.links"/>
   </app-layout>
 </template>
 
 <script>
 import AppLayout from "@/Layouts/AppLayout";
 import Welcome from "@/Jetstream/Welcome";
+import Pagination from '@/Jetstream/Pagination';
 
 export default {
   props: {
@@ -48,6 +51,7 @@ export default {
   components: {
     AppLayout,
     Welcome,
+    Pagination,
   },
 };
 </script>

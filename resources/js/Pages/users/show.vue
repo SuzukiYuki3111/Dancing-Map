@@ -11,45 +11,17 @@
 
 <script>
 import AppLayout from "@/Layouts/AppLayout";
-import Welcome from "@/Jetstream/Welcome";
-import JetButton from "@/Jetstream/Button";
 import UsersHeader from "@/Utils/usersHeader";
-// import moment from "moment";
-// import placeList from "@/Utils/placeList";
 
 export default {
   props: {
-    places: Object,
+    // places: Object,
     user: Object,
   },
 
   components: {
     AppLayout,
-    Welcome,
-    JetButton,
     UsersHeader,
   },
-
-  // name: "pink-tabs",
-
-  //   data() {
-  //     return {
-  //       moment: moment,
-  //       openTab: 1,
-  //       places: this.places,
-  //     };
-  //   },
-
-  //   methods: {
-  //     toggleTabs: function(tabNumber){
-  //       this.openTab = tabNumber
-  //     }
-  //   },
-
-  //   watch: {
-  //     places(newPlaces) {
-  //       this.places = newPlaces;
-  //     },
-  //   },
 };
 </script>
