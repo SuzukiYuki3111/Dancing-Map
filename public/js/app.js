@@ -19698,6 +19698,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'App',
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__.default,
     Welcome: _Jetstream_Welcome__WEBPACK_IMPORTED_MODULE_1__.default,
@@ -19710,7 +19711,13 @@ __webpack_require__.r(__webpack_exports__);
         map_url: "",
         name: "",
         description: ""
-      })
+      }),
+      markers: [{
+        position: {
+          lat: 35.69142600802246,
+          lng: 139.7662640231528
+        }
+      }]
     };
   },
   // file用フォームヘルパー
@@ -19720,7 +19727,8 @@ __webpack_require__.r(__webpack_exports__);
         _token: this.$page.props.csrf_token,
         forceFormData: true
       });
-    }
+    },
+    setPlace: function setPlace() {}
   }
 });
 
@@ -24984,6 +24992,10 @@ var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 );
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_GMapAutocomplete = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("GMapAutocomplete");
+
+  var _component_GMapMarker = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("GMapMarker");
+
   var _component_GMapMap = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("GMapMap");
 
   var _component_app_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-layout");
@@ -24993,13 +25005,29 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [_hoisted_1, _hoisted_2];
     }),
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_GMapMap, {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_GMapAutocomplete, {
+        "class": "w-full mb-2 text-black",
+        placeholder: "This is a placeholder",
+        onPlace_changed: $options.setPlace,
+        options: {
+          bounds: {
+            north: 1.4,
+            south: 1.2,
+            east: 104,
+            west: 102
+          },
+          strictBounds: true
+        }
+      }, null, 8
+      /* PROPS */
+      , ["onPlace_changed", "options"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_GMapMap, {
         "class": "w-full h-screen rounded-lg",
         center: {
           lat: 35.69142600802246,
           lng: 139.7662640231528
         },
         zoom: 11,
+        ref: "myMapRef",
         disableDefaultUI: true,
         "map-type-id": "roadmap",
         options: {
@@ -25010,17 +25038,37 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           rotateControl: true,
           fullscreenControl: true
         }
-      }, null, 8
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.markers, function (m, index) {
+            return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_GMapMarker, {
+              key: index,
+              position: m.position,
+              onClick: _cache[1] || (_cache[1] = function ($event) {
+                return _ctx.openInfoWindow(_ctx.marker.id);
+              }),
+              clickable: true
+            }, null, 8
+            /* PROPS */
+            , ["position"]);
+          }), 128
+          /* KEYED_FRAGMENT */
+          ))];
+        }),
+        _: 1
+        /* STABLE */
+
+      }, 8
       /* PROPS */
       , ["center"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("form", {
-        onSubmit: _cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+        onSubmit: _cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
           return $options.submit && $options.submit.apply($options, arguments);
         }, ["prevent"])),
         "class": "flex flex-col space-y-5"
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" file "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "file",
         accept: "image/jpeg, image/png",
-        onInput: _cache[1] || (_cache[1] = function ($event) {
+        onInput: _cache[2] || (_cache[2] = function ($event) {
           return $data.form.file = $event.target.files[0];
         }),
         required: ""
@@ -25037,7 +25085,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" map_url "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
         type: "text",
         "class": "\n                  px-4\n                  py-2\n                  transition\n                  duration-300\n                  border border-gray-300\n                  rounded\n                  focus:border-transparent\n                  focus:outline-none\n                  focus:ring-4 focus:ring-blue-200\n                ",
-        "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+        "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
           return $data.form.map_url = $event;
         }),
         required: ""
@@ -25049,7 +25097,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         type: "text",
         "class": "\n                  px-4\n                  py-2\n                  transition\n                  duration-300\n                  border border-gray-300\n                  rounded\n                  focus:border-transparent\n                  focus:outline-none\n                  focus:ring-4 focus:ring-blue-200\n                ",
         placeholder: "◯◯駅、スタジオ◯◯など",
-        "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+        "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
           return $data.form.name = $event;
         }),
         required: ""
@@ -25063,7 +25111,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         rows: "7",
         wrap: "hard",
         placeholder: "駅から近くて便利、ゴミは必ず持ち帰るなど",
-        "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+        "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
           return $data.form.description = $event;
         }),
         required: ""
@@ -26163,9 +26211,63 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Import
 
 
  //お気に入り用
+// import { result } from 'lodash';
 
 
-var el = document.getElementById('app');
+var el = document.getElementById('app'); // const loader = new Loader({
+//     apiKey: JSON.parse(el.dataset.page).props.map_api_key, libraries: ['places']
+// });
+// const {coords} = useGeolocation();
+// const currPos = computed(() =>({
+//     lat: coords.value.latitude,
+//     lng: coords.value.longitude
+// }))
+// export function useGeolocation(){
+//     const coords = ref({latitude: 0, longitude: 0})
+//     const isSupported = 'navigator' in window && 'geolocation' in navigator
+//     let watcher = null
+//     onMounted(() => {
+//         if(isSupported)
+//             watcher = navigator.geolocation.watchPosition(
+//                 position => (coords.value = position.coords)
+//             )
+//     })
+//     onUnmounted(() => {
+//         if(watcher)
+//         navigator.geolocation.clearWatch(watcher)
+//     })
+//     return { coords, isSupported }
+// }
+// const mapDiv = ref(null);
+// let map = ref(null);
+// let marker = ref(null);
+// let result_lat = ref(null);
+// let result_lng = ref(null);
+// let interior = ref(null);
+// let exterior = ref(null);
+// let calle = ref(null);
+// let colonia = ref(null);
+// let municipio = ref(null);
+// let estado = ref(null);
+// let CP = ref(null);
+// initMap
+// loader.load().then(() => {
+//     map.value = new google.maps.Map(mapDiv.value, {
+//         center: currPos.value,
+//         zoom: 11
+//     })
+//     marker = new google.maps.Marker({
+//         map: map.value,
+//         draggable: true,
+//         animation: google.maps.Animation.DROP,
+//         position: currPos.value
+//     })
+// })
+// google.maps.event.addListener(marker, 'dragend', function(){
+//     result_lat.value = marker.getPosition().lat()
+//     result_lng.value = marker.getPosition().lng()
+// })
+
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({
   render: function render() {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.App, {
@@ -26191,9 +26293,9 @@ var el = document.getElementById('app');
     }
   }
 }).use(_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.plugin).use(_fawmi_vue_google_maps__WEBPACK_IMPORTED_MODULE_4__.default, {
-  // google map api
   load: {
-    key: JSON.parse(el.dataset.page).props.map_api_key
+    key: JSON.parse(el.dataset.page).props.map_api_key,
+    libraries: 'places'
   }
 }).component('icon', _Utils_Icon__WEBPACK_IMPORTED_MODULE_3__.default) // お気に入り用
 .mount(el);

@@ -33,10 +33,21 @@
             rounded
           "
         >
+         <GMapAutocomplete
+         class="w-full mb-2 text-black"
+       placeholder="This is a placeholder"
+       @place_changed="setPlace"
+       :options="{
+            bounds: {north: 1.4, south: 1.2, east: 104, west: 102},
+            strictBounds: true
+       }"
+    >
+  </GMapAutocomplete>
           <GMapMap
             class="w-full h-screen rounded-lg"
             :center="{ lat: 35.69142600802246, lng: 139.7662640231528 }"
             :zoom="11"
+            ref="myMapRef"
             :disableDefaultUI="true"
             map-type-id="roadmap"
             :options="{
@@ -48,6 +59,13 @@
               fullscreenControl: true,
             }"
           >
+            <GMapMarker
+      :key="index"
+      v-for="(m, index) in markers"
+      :position="m.position"
+      @click="openInfoWindow(marker.id)"
+      :clickable="true"
+    />
           </GMapMap>
         </div>
         <div class="p-5 bg-white md:flex-1">
@@ -184,6 +202,8 @@ import Welcome from "@/Jetstream/Welcome";
 import JetButton from "@/Jetstream/Button";
 
 export default {
+name: 'App',
+
   components: {
     AppLayout,
     Welcome,
@@ -198,8 +218,16 @@ export default {
         name: "",
         description: "",
       }),
+       markers: [
+        {
+          position: {
+            lat: 35.69142600802246, lng: 139.7662640231528
+          },
+        }
+      ]
     };
   },
+
   // file用フォームヘルパー
   methods: {
     submit() {
@@ -208,6 +236,8 @@ export default {
         forceFormData: true,
       });
     },
+    setPlace() {
+    }
   },
 };
 </script>
